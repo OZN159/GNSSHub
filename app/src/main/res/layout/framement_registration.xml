@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="top">
+
+        <TextView
+            android:id="@+id/fragment_output"
+            android:drawableStart="@drawable/setting"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:padding="10dp"
+            android:textSize="15dp"
+            android:textColor="#000000"
+            android:text="@string/registration"
+            android:background="@drawable/shape_circle"/>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="none">
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:stretchColumns="1">
+
+                <TableRow
+                    android:id="@+id/tableRow_NTP">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="15dp"
+                        android:textSize="15dp"
+                        android:textColor="#000000"
+                        android:text="@string/NTP_time"/>
+                    <TextView
+                        android:id="@+id/textview_NTP"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:layout_margin="15dp"
+                        android:textSize="15dp"
+                        android:textColor="#252121" />
+
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/tableRow_expireDate">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="15dp"
+                        android:textSize="15dp"
+                        android:textColor="#000000"
+                        android:text="@string/expire"/>
+                    <TextView
+                        android:id="@+id/textview_expireDate"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:layout_margin="15dp"
+                        android:textSize="15dp"
+                        android:textColor="#252121" />
+
+                </TableRow>
+            </TableLayout>
+        </ScrollView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="bottom">
+
+        <Button
+            android:id="@+id/button_register"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_selector"
+            android:text="@string/register" />
+
+    </LinearLayout>
+
+</LinearLayout>

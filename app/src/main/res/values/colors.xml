@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008CD6</color>
+    <color name="colorPrimaryDark">#0075d6</color>
+    <color name="colorAccent">#2EA7E0</color> <!-- #D81B60 -->
+    <color name="colorBlue">#008CD6</color>
+    <color name="colorBlue_m">#0075d6</color>
+    <color name="colorBlue_L">#87CEFA</color>
+
+<!--    <color name="colorPrimary">#008CD6</color>-->
+<!--    <color name="colorPrimaryDark">#00BFFF</color>-->
+<!--    <color name="colorAccent">#6495ED</color> &lt;!&ndash; #D81B60 &ndash;&gt;-->
+<!--    <color name="colorBlue">#00BFFF</color>-->
+<!--    <color name="colorBlue_m">#008CD6</color>-->
+    <color name="colorGray">#ccccd7</color>
+    <color name="colorGray_l">#dddddd</color>
+    <color name="colorWhite">#ffffff</color>
+</resources>

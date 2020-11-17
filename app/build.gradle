@@ -1,0 +1,63 @@
+apply plugin: 'com.android.application'
+
+android {
+    signingConfigs {
+        release {
+            storeFile file('D:\\Software\\AndroidStudio\\JKS\\nander.keystore')
+            storePassword '1596541'
+            keyAlias = 'nander'
+            keyPassword '1596541'
+        }
+    }
+    compileSdkVersion 30
+    buildToolsVersion "29.0.2"
+    defaultConfig {
+        applicationId "com.BD.uavcaster"
+        minSdkVersion 23
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        signingConfig signingConfigs.release
+    }
+
+    android.applicationVariants.all {
+        variant ->
+            variant.outputs.all {
+                outputFileName = "UAVHub.apk"
+            }
+    }
+
+    lintOptions {
+        abortOnError false
+        checkReleaseBuilds false
+        disable 'MissingTranslation'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+    }
+}
+
+dependencies {
+    //    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    //    implementation 'androidx.appcompat:appcompat:1.2.0'
+    //    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    //    implementation 'com.google.android.material:material:1.2.0'
+    //    testImplementation 'junit:junit:4.12'
+    //    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    //    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'com.google.android.material:material:1.0.0'
+    implementation 'com.github.dmytrodanylyk.circular-progress-button:library:1.1.3'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+    implementation files('libs/javabase64.jar')
+}

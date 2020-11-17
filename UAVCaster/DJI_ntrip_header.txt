@@ -1,0 +1,7 @@
+GET /RTCM32GGB HTTP/1.0
+User-Agent: NTRIP Hi-Target-VNet/4.0.0
+Accept: */*
+Connection: close
+Authorization: Basic cm5ya21zMDAzOmFiYzIwMDY=
+
+		

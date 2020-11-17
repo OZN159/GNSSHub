@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="top">
+
+        <TextView
+            android:id="@+id/fragment_input"
+            android:drawableStart="@drawable/setting"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:padding="10dp"
+            android:textSize="15dp"
+            android:textColor="#000000"
+            android:text="@string/input"
+            android:background="@drawable/shape_circle"/>
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:stretchColumns="1">
+
+            <TableRow
+                android:id="@+id/tableRow_input_model">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    android:textSize="15dp"
+                    android:textColor="#000000"
+                    android:text="@string/input_model"/>
+
+                <Spinner
+                    android:id="@+id/spinner_input_model"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    android:entries="@array/input_model_list"/>
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/tableRow_input_mode">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    android:textSize="15dp"
+                    android:textColor="#000000"
+                    android:text="@string/input_mode"/>
+
+                <Spinner
+                    android:id="@+id/spinner_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    android:entries="@array/input_mode_list"/>
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/tableRow_input_encryption">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    android:textSize="15dp"
+                    android:textColor="#000000"
+                    android:text="@string/input_encryption"/>
+
+                <Spinner
+                    android:id="@+id/spinner_encryption"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    android:entries="@array/input_encryption_list"/>
+            </TableRow>
+
+
+        </TableLayout>
+
+        <TextView
+            android:id="@+id/fragment_output"
+            android:drawableStart="@drawable/setting"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:padding="10dp"
+            android:textSize="15dp"
+            android:textColor="#000000"
+            android:text="@string/output"
+            android:background="@drawable/shape_circle"/>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="none">
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:stretchColumns="1">
+
+                <TableRow
+                    android:id="@+id/tableRow_output_model">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="15dp"
+                        android:textSize="15dp"
+                        android:textColor="#000000"
+                        android:text="@string/output_model"/>
+
+                    <Spinner
+                        android:id="@+id/spinner_output_model"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="15dp"
+                        android:entries="@array/output_model_list"/>
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/tableRow_output_mode">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="15dp"
+                        android:textSize="15dp"
+                        android:textColor="#000000"
+                        android:text="@string/output_mode"/>
+                    <Spinner
+                        android:id="@+id/spinner_output"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="15dp"
+                        android:entries="@array/output_mode_list"/>
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/tableRow_outputIP">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="15dp"
+                        android:textSize="15dp"
+                        android:textColor="#000000"
+                        android:text="@string/output_ip"/>
+                    <EditText
+                        android:id="@+id/edit_ip"
+                        android:inputType="text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="15dp"
+                        android:textSize="15dp" />
+
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/tableRow_outputPort">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="15dp"
+                        android:textSize="15dp"
+                        android:textColor="#000000"
+                        android:text="@string/output_port"/>
+                    <EditText
+                        android:id="@+id/edit_port"
+                        android:inputType="number"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="15dp"
+                        android:textSize="15dp" />
+
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/tableRow_outputProtocol">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="15dp"
+                        android:textSize="15dp"
+                        android:textColor="#000000"
+                        android:text="@string/output_protocol"/>
+                    <Spinner
+                        android:id="@+id/spinner_protocol"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="15dp"
+                        android:entries="@array/output_protocol_list"/>
+
+                </TableRow>
+            </TableLayout>
+        </ScrollView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="bottom">
+
+        <Button
+            android:id="@+id/fragment_connect"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_selector"
+            android:text="@string/save" />
+
+    </LinearLayout>
+
+</LinearLayout>

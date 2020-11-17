@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:stretchColumns="1">
+
+        <TableRow>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
+                android:textSize="15dp"
+                android:textColor="#000000"
+                android:text="@string/alert_serialNum" />
+
+            <TextView
+                android:id="@+id/textView_UUID"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
+                android:layout_marginRight="5dp"
+                android:gravity="center"/>
+
+            <Button
+                android:id="@+id/button_UUID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_circle"
+                android:minHeight="0dp"
+                android:minWidth="0dp"
+                android:layout_gravity="center"
+                android:text="@string/copy" />
+        </TableRow>
+
+<!--        <TableRow>-->
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginLeft="15dp"-->
+<!--                android:layout_marginTop="15dp"-->
+<!--                android:layout_marginBottom="15dp"-->
+<!--                android:textSize="15dp"-->
+<!--                android:textColor="#000000"-->
+<!--                android:text="@string/alert_expireDate"/>-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/textView_expireDate"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="15dp"-->
+<!--                android:layout_marginBottom="15dp"-->
+<!--                android:layout_marginRight="5dp"-->
+<!--                android:gravity="center" />-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/textView_expireState"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="15dp"-->
+<!--                android:layout_marginBottom="15dp"-->
+<!--                android:layout_marginRight="5dp"  />-->
+
+<!--        </TableRow>-->
+
+        <TableRow>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
+                android:textSize="15dp"
+                android:textColor="#000000"
+                android:text="@string/alert_registrationCode"/>
+
+            <EditText
+                android:id="@+id/alert_editText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp">
+
+                <requestFocus></requestFocus>
+            </EditText>
+        </TableRow>
+    </TableLayout>
+</LinearLayout>

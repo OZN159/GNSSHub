@@ -1,0 +1,46 @@
+<resources>
+    <string-array name="input_model_list">
+        <item>V100</item>
+        <item>Inno1</item>
+        <item>Customize</item>
+    </string-array>
+    <string-array name="input_mode_list">
+        <item>CORS</item>
+        <item>Bluetooth</item>
+    </string-array>
+    <string-array name="input_encryption_list">
+        <item>None</item>
+        <item>Hi-Target</item>
+    </string-array>
+
+    <string-array name="output_model_list">
+        <item>DJI</item>
+        <item>XAG</item>
+        <item>Customize</item>
+    </string-array>
+    <string-array name="output_mode_list">
+        <item>GSM</item>
+        <item>Wifi Hotspot</item>
+        <item>Internal Cable</item>
+        <item>Bluetooth</item>
+    </string-array>
+    <string-array name="output_protocol_list">
+        <item>Ntrip Client</item>
+        <item>Ntrip Server</item>
+        <item>Ntrip Caster</item>
+        <item>TCP Client</item>
+        <item>TCP Server</item>
+        <item>UDP</item>
+    </string-array>
+    <string-array name="output_protocol_list_client">
+        <item>Ntrip Client</item>
+        <item>Ntrip Server</item>
+        <item>TCP Client</item>
+        <item>UDP</item>
+    </string-array>
+    <string-array name="output_protocol_list_server">
+        <item>Ntrip Caster</item>
+        <item>TCP Server</item>
+    </string-array>
+
+</resources>

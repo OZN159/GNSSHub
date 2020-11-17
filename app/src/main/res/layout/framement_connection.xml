@@ -1,0 +1,225 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="top">
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:stretchColumns="1">
+
+            <TableRow>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_margin="15dp"
+                        android:textSize="15dp"
+                        android:textColor="#000000"
+                        android:text="@string/position_state"/>
+
+                    <TextView
+                        android:id="@+id/textview_state"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:layout_margin="15dp"
+                        android:textSize="15dp"
+                        android:textColor="#252121" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_margin="15dp"
+                        android:textSize="15dp"
+                        android:textColor="#000000"
+                        android:text="@string/correction_age"/>
+
+                    <TextView
+                        android:id="@+id/textview_age"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:layout_margin="15dp"
+                        android:textSize="15dp"
+                        android:textColor="#252121" />
+                </LinearLayout>
+            </TableRow>
+
+            <TableRow>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_margin="15dp"
+                        android:textSize="15dp"
+                        android:textColor="#000000"
+                        android:text="@string/position_latitude"/>
+
+                    <TextView
+                        android:id="@+id/textview_latitude"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:layout_margin="15dp"
+                        android:textSize="15dp"
+                        android:textColor="#252121" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_margin="15dp"
+                        android:textSize="15dp"
+                        android:textColor="#000000"
+                        android:text="@string/position_longitude"/>
+
+                    <TextView
+                        android:id="@+id/textview_longitude"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:layout_margin="15dp"
+                        android:textSize="15dp"
+                        android:textColor="#252121" />
+                </LinearLayout>
+            </TableRow>
+
+            <TableRow>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_margin="15dp"
+                        android:textSize="15dp"
+                        android:textColor="#000000"
+                        android:text="@string/position_altitude"/>
+
+                    <TextView
+                        android:id="@+id/textview_altitude"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:layout_margin="15dp"
+                        android:textSize="15dp"
+                        android:textColor="#252121" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_margin="15dp"
+                        android:textSize="15dp"
+                        android:textColor="#000000"
+                        android:text="@string/position_time"/>
+
+                    <TextView
+                        android:id="@+id/textview_time"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:layout_margin="15dp"
+                        android:textSize="15dp"
+                        android:textColor="#252121" />
+                </LinearLayout>
+            </TableRow>
+        </TableLayout>
+
+        <Button
+            android:id="@+id/fragment_gga"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:background="@drawable/button_selector"
+            android:text="@string/start_log_gga" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="bottom|center_horizontal">
+
+            <com.BD.uavcaster.view.BubbleViscosity
+                android:id="@+id/btn_process"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="6"/>
+
+            <TextView
+                android:id="@+id/textview_tip"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:layout_margin="15dp"
+                android:textSize="12dp"
+                android:textColor="@color/colorGray"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+
+            <Button
+                android:id="@+id/btn_connect"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAllCaps="false"
+                android:background="@drawable/button_selector"
+                android:text="@string/connect" />
+
+<!--            <com.dd.CircularProgressButton-->
+<!--                android:id="@+id/btn_connect"-->
+<!--                android:layout_width="150dp"-->
+<!--                android:layout_height="0dp"-->
+<!--                android:layout_weight="1"-->
+<!--                android:textColor="@color/colorWhite"-->
+<!--                android:textSize="14sp"-->
+<!--                app:cpb_cornerRadius="48dp"-->
+<!--                app:cpb_iconComplete="@string/complete"-->
+<!--                app:cpb_iconError="@string/error"-->
+<!--                app:cpb_selectorIdle="@color/colorGray" />-->
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

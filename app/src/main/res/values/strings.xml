@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">UAV Hub</string>
+    <string name="developer">Hi-Target International</string>
+    <string name="website">bd.hi-target.com.cn/</string>
+    <string name="menu_item_connection">Connection</string>
+    <string name="menu_group_communicate">Communicate</string>
+    <string name="menu_item_share">Share</string>
+    <string name="menu_item_contact">Contact</string>
+    <string name="menu_item_setting">Setting</string>
+    <string name="menu_item_terminal">Registration</string>
+    <string name="alert_serialNum">SN : </string>
+    <string name="alert_expireDate">Expired : </string>
+    <string name="alert_registrationCode">Code : </string>
+
+    <string name="save">Save</string>
+    <string name="copy">Copy</string>
+    <string name="input">Configuration (Input)</string>
+    <string name="input_model">Model : </string>
+    <string name="input_mode">Mode : </string>
+    <string name="input_encryption">Encryption : </string>
+    <string name="output">Configuration (Output)</string>
+    <string name="output_model">Model : </string>
+    <string name="output_mode">Mode : </string>
+    <string name="output_ip">IP : </string>
+    <string name="output_port">Port : </string>
+    <string name="output_protocol">Protocol : </string>
+    <string name="complete">Complete</string>
+    <string name="error">Error</string>
+    <string name="upload">Loading</string>
+    <string name="connect">Connect</string>
+    <string name="stop">Forwarding .....</string>
+
+    <string name="start_log_gga">POSITION LOGGER</string>
+    <string name="position_state">State:</string>
+    <string name="correction_age">Age:</string>
+    <string name="position_latitude">Lat.:</string>
+    <string name="position_longitude">Lon.:</string>
+    <string name="position_altitude">Alt.:</string>
+    <string name="position_time">Time:</string>
+
+    <string name="registration">Registration</string>
+    <string name="expire">Expire Date : </string>
+    <string name="NTP_time">NTP Time : </string>
+    <string name="register">Register</string>
+
+    <string name="bt_deviceList_mated">Paired Bluetooth Device : </string>
+
+    <string name="vector_path_menu">M3,8 L21,8 21,6 3,6z M3,18 L21,18 21,16 3,16z M3,13 L21,13 21,11 3,11z</string>
+    <string name="vector_path_line">M3,13 L21,13 21,11 3,11z M3,13 L21,13 21,11 3,11z M3,12 L21,12 21,12 3,12z</string>
+    <string name="vector_path_close">M5,6.41 L17.59,19 19,17.59 6.41,5z M6.41,19 L19,6.41 17.59,5 5,17.59z M12,12 L12,12 12,12 12,12z</string>
+</resources>
