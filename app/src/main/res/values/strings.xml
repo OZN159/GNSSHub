@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">UAV Hub</string>
+    <string name="app_name">GNSS Hub</string>
     <string name="developer">Hi-Target International</string>
     <string name="website">bd.hi-target.com.cn/</string>
     <string name="menu_item_connection">Connection</string>

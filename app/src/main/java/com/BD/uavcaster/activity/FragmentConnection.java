@@ -130,10 +130,10 @@ public class FragmentConnection extends Fragment {
                         //input_model
                         if (input_model == 0) { //V100
                             input_mode = 1; //BT
-                            input_encryption = 1; //None
+                            input_encryption = 1; //HT
                         } else if (input_model == 1) { //Inno1
                             input_mode = 1; //BT
-                            input_encryption = 0; //HT
+                            input_encryption = 1; //HT
                         }
 
                         //output_model
@@ -154,8 +154,8 @@ public class FragmentConnection extends Fragment {
                             //bluetooth connection
                             case 1:
                                 //manually built a BT connection
-                                status = mDataForwarding.getBluetoothConnected();
-                                if (status == false) {
+//                                status = mDataForwarding.getBluetoothConnected();
+//                                if (status == false) {
                                     if (!mDataForwarding.isBluetoothEnable()) {
                                         btn_process.setVisibility(View.GONE);
                                         tv_tip.setVisibility(View.GONE);
@@ -168,7 +168,7 @@ public class FragmentConnection extends Fragment {
 
                                     Intent serverIntent = new Intent(getActivity(), BTDeviceListActivity.class);
                                     startActivityForResult(serverIntent, REQUEST_CONNECT_DEVICE);
-                                }
+//                                }
                                 break;
                         }
 
@@ -193,8 +193,8 @@ public class FragmentConnection extends Fragment {
                             //Bluetooth
                             case 3:
                                 //manually built a BT connection
-                                status = mDataForwarding.getBluetoothConnected();
-                                if (status == false) {
+//                                status = mDataForwarding.getBluetoothConnected();
+//                                if (status == false) {
                                     if (!mDataForwarding.isBluetoothEnable()) {
                                         btn_process.setVisibility(View.GONE);
                                         tv_tip.setVisibility(View.GONE);
@@ -207,7 +207,7 @@ public class FragmentConnection extends Fragment {
 
                                     Intent serverIntent = new Intent(getActivity(), BTDeviceListActivity.class);
                                     startActivityForResult(serverIntent, REQUEST_CONNECT_DEVICE);
-                                }
+//                                }
                                 break;
                         }
 

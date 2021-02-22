@@ -22,6 +22,7 @@ public class TimeFunction {
     private SntpClient client;
     private LocationManager mLocationManager;
     private String NTP_Time;
+    private String calendar_time;
 
     public TimeFunction(Context context) {
         mContext = context;
@@ -50,8 +51,7 @@ public class TimeFunction {
         }
     }
 
-
-    public void  getCalendarTime(){
+    public boolean getCalendarTime() {
         final Calendar c = Calendar.getInstance();
 
         c.setTimeZone(TimeZone.getTimeZone("GMT+8:00"));
@@ -59,17 +59,26 @@ public class TimeFunction {
         String mYear = String.valueOf(c.get(Calendar.YEAR));//年
 
         String mMonth = String.valueOf(c.get(Calendar.MONTH) + 1);//月
+        mMonth = Integer.parseInt(mMonth) < 10? "0" + mMonth : mMonth;
 
         String mDay = String.valueOf(c.get(Calendar.DAY_OF_MONTH));//日
+        mDay = Integer.parseInt(mDay) < 10? "0" + mDay : mDay;
 
         String mHour = String.valueOf(c.get(Calendar.HOUR_OF_DAY));//24小时格式    HOUR(12小时格式)
 
-        String  mMinute = String.valueOf(c.get(Calendar.MINUTE));//分
+        String mMinute = String.valueOf(c.get(Calendar.MINUTE));//分
 
-        String  mSecond = String.valueOf(c.get(Calendar.SECOND));//秒
+        String mSecond = String.valueOf(c.get(Calendar.SECOND));//秒
 
-        Log.d("getNTPTime", mYear+"-"+mMonth+"-"+mDay+"  "+mHour+":"+mMinute+":"+mSecond);
+        calendar_time = mYear + mMonth + mDay;
 
+        Log.d("getCalendarTime", mYear + "-" + mMonth + "-" + mDay + "  " + mHour + ":" + mMinute + ":" + mSecond);
+
+        if (Integer.parseInt(calendar_time) > 20210101) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public boolean getLocationTime() {
@@ -116,7 +125,29 @@ public class TimeFunction {
         String mTime;
 
         if (NTP_Time != null) {
-            mTime = NTP_Time.substring(0,4) + "-" + NTP_Time.substring(4,6) + "-" + NTP_Time.substring(6,8);
+            mTime = NTP_Time.substring(0, 4) + "-" + NTP_Time.substring(4, 6) + "-" + NTP_Time.substring(6, 8);
+        } else {
+            mTime = "Null";
+        }
+        return mTime;
+    }
+
+    public long getLongCalendarTime() {
+        long mTime;
+
+        if (calendar_time != null) {
+            mTime = Long.parseLong(calendar_time);
+        } else {
+            mTime = 0;
+        }
+        return mTime;
+    }
+
+    public String getStringCalendarTime() {
+        String mTime;
+
+        if (calendar_time != null) {
+            mTime = calendar_time.substring(0, 4) + "-" + calendar_time.substring(4, 6) + "-" + calendar_time.substring(6, 8);
         } else {
             mTime = "Null";
         }

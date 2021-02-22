@@ -56,12 +56,12 @@ public class Registration {
         }
 
         //check the NTP time if valid
-//        if (mTime.getLongNTPTime() < 20000101) {
+//        if (mTime.getLongCalendarTime() < 20000101) {
 //            return -1;
 //        }
 
         if (decode_registration.equals(encrypted_code)
-                && (Long.parseLong(decode_expireTime) > mTime.getLongNTPTime())
+                && (Long.parseLong(decode_expireTime) > mTime.getLongCalendarTime())
                 && (checkupCode == checkup)) {
             return 1;
         } else {
@@ -82,7 +82,7 @@ public class Registration {
         }
 
         //compare the current date and expire date.
-        if ((Long.parseLong(decode_expireTime) <= mTime.getLongNTPTime()) || (checkupCode != checkup)) {
+        if ((Long.parseLong(decode_expireTime) <= mTime.getLongCalendarTime()) || (checkupCode != checkup)) {
             String notice = " Wrong registration time ";
             Toast.makeText(mContext, notice, Toast.LENGTH_LONG).show();
 

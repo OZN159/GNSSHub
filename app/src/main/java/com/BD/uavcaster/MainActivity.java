@@ -63,10 +63,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //apply for the necessary permission
-        requestMyPermissions();
-
-
         mDataForwarding = new DataForwarding(getApplicationContext());
 
         mTimeThread = new networkTimeThread();
@@ -282,66 +278,6 @@ public class MainActivity extends AppCompatActivity {
         System.exit(0);
     }
 
-    private void requestMyPermissions() {
-        //the permission of write and read
-        if (ContextCompat.checkSelfPermission(this,
-                Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                != PackageManager.PERMISSION_GRANTED) {
-            //没有授权，编写申请权限代码
-            ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 100);
-        } else {
-            //Log.d(TAG, "requestMyPermissions: Location permission");
-        }
-
-        if (ContextCompat.checkSelfPermission(this,
-                Manifest.permission.ACCESS_FINE_LOCATION)
-                != PackageManager.PERMISSION_GRANTED) {
-            //没有授权，编写申请权限代码
-            ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 100);
-        } else {
-            //Log.d(TAG, "requestMyPermissions: Location permission");
-        }
-        if (ContextCompat.checkSelfPermission(this,
-                Manifest.permission.ACCESS_LOCATION_EXTRA_COMMANDS)
-                != PackageManager.PERMISSION_GRANTED) {
-            //没有授权，编写申请权限代码
-            ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.ACCESS_LOCATION_EXTRA_COMMANDS}, 100);
-        } else {
-            //Log.d(TAG, "requestMyPermissions: location_extra permission");
-        }
-
-        if (ContextCompat.checkSelfPermission(this,
-                Manifest.permission.ACCESS_BACKGROUND_LOCATION)
-                != PackageManager.PERMISSION_GRANTED) {
-            //没有授权，编写申请权限代码
-            ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.ACCESS_BACKGROUND_LOCATION}, 100);
-        } else {
-            //Log.d(TAG, "requestMyPermissions: location_extra permission");
-        }
-
-        if (ContextCompat.checkSelfPermission(this,
-                Manifest.permission.ACCESS_COARSE_LOCATION)
-                != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
-            //    Activity#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for Activity#requestPermissions for more details.
-            ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.ACCESS_COARSE_LOCATION}, 100);
-        }
-
-        if (ContextCompat.checkSelfPermission(this,
-                Manifest.permission.READ_PHONE_STATE)
-                != PackageManager.PERMISSION_GRANTED) {
-            //没有授权，编写申请权限代码
-            ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.READ_PHONE_STATE}, 100);
-        } else {
-            //Log.d(TAG, "requestMyPermissions: location_extra permission");
-        }
-    }
-
     private class networkTimeThread extends Thread {
 
         public networkTimeThread() {
@@ -350,11 +286,11 @@ public class MainActivity extends AppCompatActivity {
         }
 
         public void run() {
-            if (!mTime.getNTPTime()) {
+            if (!mTime.getCalendarTime()) {
                 Looper.prepare();
                 AlertDialog alert_Dialog = new AlertDialog.Builder(MainActivity.this)
                         .setTitle("Error")
-                        .setMessage("No internet service. Please keep your internet open.")
+                        .setMessage("No Time service. Please Check your location time.")
                         .setCancelable(false)
                         .setNegativeButton("Exit", new DialogInterface.OnClickListener() {
                             @Override
@@ -365,7 +301,8 @@ public class MainActivity extends AppCompatActivity {
                         .create();
                 alert_Dialog.show();
                 Looper.loop();
-            } else if (mTime.getLongNTPTime() > mRegistration.getLongExpireTime()) {
+            } else if (mTime.getLongCalendarTime() > mRegistration.getLongExpireTime()
+            && mRegistration.getLongExpireTime() > 20200101 && mTime.getLongCalendarTime() > 20200101) {
                 Looper.prepare();
                 alert_view = LayoutInflater.from(MainActivity.this).inflate(R.layout.alertdialog_edittext, null);
                 alert_editText = (EditText) alert_view.findViewById(R.id.alert_editText);
@@ -374,7 +311,7 @@ public class MainActivity extends AppCompatActivity {
                 alert_textView.setText(mRegistration.getPsuedoCode());
 
                 //wait for the Ntp time to get success
-                while(mTime.getLongNTPTime() == 0) {
+                while(mTime.getLongCalendarTime() == 0) {
 
                 }
 

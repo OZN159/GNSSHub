@@ -43,7 +43,7 @@ public class FragmentRegistration extends Fragment {
         textView_expire = (TextView) view.findViewById(R.id.textview_expireDate);
         button_register = (Button) view.findViewById(R.id.button_register);
 
-        textView_NTP.setText(mTime.getStringNTPTime());
+        textView_NTP.setText(mTime.getStringCalendarTime());
         textView_expire.setText(mRegistration.getExpireTime());
 
         button_register.setOnClickListener(new View.OnClickListener() {

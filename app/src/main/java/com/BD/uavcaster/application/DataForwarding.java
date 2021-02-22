@@ -94,6 +94,9 @@ public class DataForwarding {
     public DataForwarding(Context context) {
         mContext = context;
 
+        //get the BT adapter
+        mBluetooth = BluetoothAdapter.getDefaultAdapter();
+
         //register the raw data update signal
         intent_rawData = new Intent("com.Gnss.CUSTOM_INTENT_RAW");
         intent_rawData.setComponent(new ComponentName("com.BD.uavcaster", "com.BD.uavcaster.rawReceiver"));
@@ -112,9 +115,6 @@ public class DataForwarding {
     /*********************************************Public Function******************************************/
     public boolean getBluetoothConnected() {
         byte[] bytes = new byte[0];
-
-        //get the BT adapter
-        mBluetooth = BluetoothAdapter.getDefaultAdapter();
 
         //get the BluetoothAdapter class object
         Class<BluetoothAdapter> bluetoothAdapterClass = BluetoothAdapter.class;
@@ -421,10 +421,12 @@ public class DataForwarding {
         }
     }
 
-    public void separateRTCMData(InputStream input_stream_r, byte[] buf, int buf_cnt) {
+    public void separateRTCMData(OutputStream output_stream_w, InputStream input_stream_r, byte[] buf, int buf_cnt) {
         int rtcm_cnt = 0;
         int complement_buf_cnt;
 
+        RTCM_buf = null;
+        RTCM_buf = new byte[1024];
         for (int i = 0; i < buf_cnt; i++) {
             if (buf[i] == '$' && buf[i+1] == '$' && buf[i+2] == 'G' && buf[i+3] == 'I') {
                 //RTCM Data length
@@ -449,6 +451,20 @@ public class DataForwarding {
                     //Extract RTCM data
                     System.arraycopy(buf, i+7, RTCM_buf, 0, rtcm_cnt);
                     RTCM_buf_cnt = rtcm_cnt;
+                }
+
+                // print the data
+                Log.d("DFThread(RTCM_buf_cnt)", Integer.toString(RTCM_buf_cnt));
+                Log.d("DFThread(Input)", byte2hex(RTCM_buf, RTCM_buf_cnt));
+
+                //try to forward the data
+                if (RTCM_buf_cnt > 0 && RAW_buf_cnt > 0) {
+                    try {
+                        output_stream_w.write(RTCM_buf, 0, RTCM_buf_cnt);
+                        output_stream_w.flush();
+                        RTCM_buf_cnt = 0;                   } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                 }
             }
         }
@@ -807,32 +823,23 @@ public class DataForwarding {
                                 } catch (InterruptedException e) {
                                     e.printStackTrace();
                                 }
+
+                                RAW_buf = null;
+                                RAW_buf = new byte[10240];
                                 RAW_buf_cnt = input_stream_r.read(RAW_buf);
                                 LocalBroadcastManager.getInstance(mContext).sendBroadcast(intent_rawData);
 
+                                // print the data
+                                //Log.d("DFThread(RAW_buf)", byte2hex(RAW_buf, RAW_buf_cnt));
+
                                 // separate the RTCM data from ZHD GI data
                                 if (input_encryption == 1) {
-                                    separateRTCMData(input_stream_r, RAW_buf, RAW_buf_cnt);
-
-                                    // print the data
-                                    Log.d("DFThread(Input)", byte2hex(RTCM_buf, RTCM_buf_cnt));
-
-                                    //try to forward the data
-                                    if (RTCM_buf_cnt > 0 && RAW_buf_cnt > 0) {
-                                        try {
-                                            output_stream_w.write(RTCM_buf, 0, RTCM_buf_cnt);
-                                            output_stream_w.flush();
-                                            RTCM_buf_cnt = 0;
-                                            err_cnt = 0;
-                                        } catch (Exception e) {
-                                            err_cnt++;
-                                            e.printStackTrace();
-                                        }
-                                    }
+                                    separateRTCMData(output_stream_w, input_stream_r, RAW_buf, RAW_buf_cnt);
                                 } else {
                                     // print the data
                                     RTCM_stream = new String(RAW_buf);
-                                    Log.d("DFThread(Input)", RTCM_stream.substring(0, RAW_buf_cnt));
+                                    //Log.d("DFThread(Input)", byte2hex(RAW_buf, RAW_buf_cnt));
+                                    //Log.d("DFThread(Input)", RTCM_stream.substring(0, RAW_buf_cnt));
 
                                     //try to forward the data
                                     if (RAW_buf_cnt > 0) {
